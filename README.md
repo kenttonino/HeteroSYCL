@@ -42,3 +42,4 @@ python $DPCPP_HOME/llvm/buildbot/compile.py
 ## Learning Resources
 
 > - https://intel.github.io/llvm/
+> - https://intel.github.io/llvm/GetStartedGuide.html#prerequisites
