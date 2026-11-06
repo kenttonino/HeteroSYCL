@@ -10,6 +10,8 @@
 
 ## Local Setup
 
+> - Please note, I'm using Debian Linux for this.
+
 > - Install the [icpx](https://en.wikipedia.org/wiki/Intel_C++_Compiler) compiler.
 
 ```sh
@@ -37,6 +39,16 @@ icpx --version
 echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 ```
 
+> - To run the programs, follow the scripts below.
+
+```sh
+# Build the program.
+make build
+
+# Run the specific source program you want to run.
+make run-hello
+```
+
 <br />
 <br />
 <br />
@@ -45,5 +57,4 @@ echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 
 ## Learning Resources
 
-> - https://intel.github.io/llvm/
-> - https://intel.github.io/llvm/GetStartedGuide.html#prerequisites
+> - https://www.intel.com/content/www/us/en/docs/dpcpp-cpp-compiler/developer-guide-reference/2026-2/overview.html
