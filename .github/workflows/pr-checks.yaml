@@ -1,0 +1,57 @@
+name: PR Check
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    types: [opened, synchronize]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      CMAKE_POLICY_VERSION_MINIMUM: "3.5"
+      CC: icx
+      CXX: icpx
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache oneAPI
+        id: oneapi-cache
+        uses: actions/cache@v4
+        with:
+          path: /opt/intel/oneapi
+          key: oneapi-2025.0-ubuntu
+
+      - name: Install oneAPI (icpx)
+        if: steps.oneapi-cache.outputs.cache-hit != 'true'
+        run: |
+          wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+            | gpg --dearmor \
+            | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+
+          echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] \
+            https://apt.repos.intel.com/oneapi all main" \
+            | sudo tee /etc/apt/sources.list.d/intel-oneapi.list
+
+          sudo apt-get update
+          sudo apt-get install -y intel-oneapi-compiler-dpcpp-cpp
+
+      - name: Setup oneAPI Environment
+        run: |
+          source /opt/intel/oneapi/setvars.sh
+          # persist env vars for subsequent steps
+          env | grep -E '^(PATH|LD_LIBRARY_PATH|ONEAPI|CMPLR|OCL_ICD)' \
+            | sed 's/^//' >> $GITHUB_ENV
+          echo "PATH=$PATH" >> $GITHUB_ENV
+
+      - name: Build
+        run: |
+          mkdir -p build
+          make build
