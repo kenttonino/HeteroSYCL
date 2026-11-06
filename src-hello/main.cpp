@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sycl/sycl.hpp>
 
-const std::string secret { "Ifmmp-!xpsme\"\012J(n!tpssz-!Ebwf/!" "J(n!bgsbje!J!dbo(u!ep!uibu/!.!IBM\01" };
+const std::string secret { "Ifmmp-!xpsme\"\012" };
 
 const auto sz = secret.size();
 
