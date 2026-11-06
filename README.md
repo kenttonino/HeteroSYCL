@@ -26,6 +26,15 @@ sudo apt update
 
 # Install the full Base Toolkit.
 sudo apt install intel-oneapi-base-toolkit
+
+# Source the Intel oneAPI environment.
+source /opt/intel/oneapi/setvars.sh
+
+# Then, check the version.
+icpx --version
+
+# For permanent sourcing it, add it in the .bashrc file.
+echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 ```
 
 <br />
