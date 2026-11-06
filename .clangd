@@ -1,3 +1,5 @@
 CompileFlags:
   Add:
+    - "-I/home/kenttonino/Documents/opensource/sycl_workspace/llvm/build/include"
+    - "-I/home/kenttonino/Documents/opensource/sycl_workspace/llvm/sycl/include"
     - "--std=c++17"

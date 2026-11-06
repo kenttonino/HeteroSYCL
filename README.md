@@ -10,27 +10,22 @@
 
 ## Local Setup
 
-> - You need to setup a workspace and this in your `.bashrc`.
+> - Install the [icpx](https://en.wikipedia.org/wiki/Intel_C++_Compiler) compiler.
 
 ```sh
-# Do not copy totally the path, this is on my machine only.
-DPCPP_HOME="/home/kenttonino/Documents/opensource/sycl_workspace"
-export PATH="$DPCPP_HOME:$PATH"
-source ~/.bashrc
-```
+# Add the Intel oneAPI repository.
+wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+  | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
 
-> - Go to the __DPCPP_HOME__ directory and setup the LLVM SYCL for DPC++ Compiler.
+echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] \
+  https://apt.repos.intel.com/oneapi all main" \
+  | sudo tee /etc/apt/sources.list.d/oneAPI.list
 
-```sh
-cd $DPCPP_HOME
-git clone https://github.com/intel/llvm -b sycl
-```
+sudo apt update
 
-> - Configure and compile the LLVM cloned repository.
-
-```sh
-python $DPCPP_HOME/llvm/buildbot/configure.py
-python $DPCPP_HOME/llvm/buildbot/compile.py
+# Install the full Base Toolkit.
+sudo apt install intel-oneapi-base-toolkit
 ```
 
 <br />
