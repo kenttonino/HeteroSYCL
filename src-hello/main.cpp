@@ -1,8 +1,5 @@
 #include <iostream>
-#include <CL/sycl.hpp>
-
-const std::string secret { "Ifmmp-!xpsme\"\012J(n!tpssz-!Ebwf/!" "J(n!bgsbje!J!dbo(u!ep!uibu/!.!IBM\01" };
-const auto sz = secret.size();
+#include <sycl/sycl.hpp>
 
 int main(void) {
   sycl::queue q;
