@@ -1,7 +1,7 @@
 .PHONY: build run-hello
 
 build:
-	icpx -fsycl ./src-hello/main.cpp -o ./build/src-hello
+	icpx -fsycl -std=c++17 ./src-hello/main.cpp -o ./build/src-hello
 
 run-hello: build
 	./build/src-hello
