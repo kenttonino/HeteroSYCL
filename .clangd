@@ -1,5 +1,5 @@
 CompileFlags:
   Add:
-    - "-I/home/kenttonino/Documents/opensource/sycl_workspace/llvm/build/include"
-    - "-I/home/kenttonino/Documents/opensource/sycl_workspace/llvm/sycl/include"
+    - "-I/opt/intel/oneapi/compiler/2026.2/include"
+    - "-I/home/kenttonino/Documents/projects/HeteroSYCL/src_daxpy/daxpy"
     - "--std=c++17"
