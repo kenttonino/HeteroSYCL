@@ -55,7 +55,7 @@ jobs:
         run: mkdir -p build
 
       - name: Build src_amdahls_law Program
-        run: make run-amdahls-law
+        run: make build-amdahls-law
 
       - name: Build src_daxpy Program
         run: make build-daxpy
