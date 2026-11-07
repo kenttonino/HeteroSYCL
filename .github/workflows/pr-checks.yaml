@@ -51,7 +51,12 @@ jobs:
             | sed 's/^//' >> $GITHUB_ENV
           echo "PATH=$PATH" >> $GITHUB_ENV
 
-      - name: Build
+      - name: Create Build Directory
+        run: mkdir -p build
+
+      - name: Build src_hello Program
         run: |
-          mkdir -p build
-          make build
+          make build-hello
+
+      - name: Buid src_daxpy Program
+          make build-daxpy
