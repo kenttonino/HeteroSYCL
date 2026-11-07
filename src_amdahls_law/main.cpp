@@ -9,6 +9,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <chrono>
 #include "./daxpy/daxpy.hpp"
 
 int main(int argc, char** argv) {

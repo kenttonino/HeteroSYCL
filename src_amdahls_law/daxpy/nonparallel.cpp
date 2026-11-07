@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 
 void nonparallel(void) {
+  auto start = std::chrono::steady_clock::now();
   const int n = 8;
   const double a = 2.0;
 
@@ -18,4 +20,8 @@ void nonparallel(void) {
   for (int i = 0; i < n; i++) {
     std::cout << " y[" << i << "] = " << y[i] << std::endl;
   }
+
+  auto end = std::chrono::steady_clock::now();
+  auto total = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+  std::cout << total.count() << " ms " << std::endl;
 }
