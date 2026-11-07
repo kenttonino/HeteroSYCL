@@ -55,8 +55,7 @@ jobs:
         run: mkdir -p build
 
       - name: Build src_hello Program
-        run: |
-          make build-hello
+        run: make build-hello
 
       - name: Buid src_daxpy Program
-          make build-daxpy
+        run: make build-daxpy
