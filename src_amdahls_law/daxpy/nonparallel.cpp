@@ -3,10 +3,12 @@
 #include <chrono>
 
 void nonparallel(void) {
+  // Start the time.
   auto start = std::chrono::steady_clock::now();
+
+  // Variables needed for the operation.
   const int n = 8;
   const double a = 2.0;
-
   std::vector<double> x = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
   std::vector<double> y = { 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 };
 
@@ -21,6 +23,7 @@ void nonparallel(void) {
     std::cout << " y[" << i << "] = " << y[i] << std::endl;
   }
 
+  // Calculate the total time of operation.
   auto end = std::chrono::steady_clock::now();
   auto total = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
   std::cout << total.count() << " ms " << std::endl;

@@ -46,7 +46,6 @@ echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 make build
 
 # Choose either of the script below to run your preferred program.
-make run-amdahls-law operation=parallel
 make run-amdahls-law operation=nonparallel
 make run-daxpy
 make run-hello
