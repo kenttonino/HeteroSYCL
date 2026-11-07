@@ -19,7 +19,8 @@ build-hello:
 	${CXX} ./src_hello/main.cpp -o ./build/src_hello
 
 run-amdahls-law: build-amdahls-law
-	./build/src_amdahls_law
+	clear
+	./build/src_amdahls_law --operation=${operation}
 
 run-daxpy: build-daxpy
 	./build/src_daxpy
