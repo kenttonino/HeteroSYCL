@@ -1,6 +1,9 @@
 ## Description
 
-> - Learning heterogeneous compute architectures through Intel oneAPI and SYCL using DPC++ and C/C++.
+> - Learning heterogeneous systems through Intel oneAPI and SYCL using DPC++ and C/C++.
+> - I'm currently learning the [Data Parallel C++](https://link.springer.com/book/10.1007/978-1-4842-5574-2) book so this is an ongoing playground.
+> - The code samples here are based on the book, but I added some personal changes based on my preferences.
+> - This is purely learning repo to tinker around the Intel oneAPI and DPC++/SYCL.
 
 <br />
 <br />
@@ -45,7 +48,9 @@ echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 # Build the program.
 make build
 
-# Run the specific source program you want to run.
+# Choose either of the script below to run your preferred program.
+make run-amdahls-law operation=nonparallel
+make run-daxpy
 make run-hello
 ```
 
@@ -57,4 +62,5 @@ make run-hello
 
 ## Learning Resources
 
+> - https://link.springer.com/book/10.1007/978-1-4842-5574-2
 > - https://www.intel.com/content/www/us/en/docs/dpcpp-cpp-compiler/developer-guide-reference/2026-2/overview.html
