@@ -1,9 +1,10 @@
 /*
- * Ahmadal's Law Forula = 1 / 1 - p
+ * Ahmdahl's Law Forula = 1 / 1 - p
  *
  * This sample is trying to test only the amdahl's law using DAXPY implmentation we have.
  *  - Run implementation without parallelism -> measure time.
  *  - Run implementation with parallelism -> measure time.
+ *  - Use the Amdahls formula to get the factor of speed.
  *  - Check the factor of speed-up.
  * */
 
@@ -11,6 +12,8 @@
 #include <iostream>
 #include "./daxpy/daxpy.hpp"
 
+// TODO: Implement the parallel operations.
+// TODO: Find a way to identify the factor of speed and the fraction of parallel operation (for operation=parallel only).
 int main(int argc, char** argv) {
   // Make sure to always pass the --operation flag.
   if (argc == 1) {
