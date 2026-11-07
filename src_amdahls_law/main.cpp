@@ -9,6 +9,7 @@
 
 #include <cstring>
 #include <iostream>
+#include "./daxpy/daxpy.hpp"
 
 int main(int argc, char** argv) {
   // Make sure to always pass the --operation flag.
@@ -25,7 +26,7 @@ int main(int argc, char** argv) {
 
   // Run the nonparallel DAXPY program.
   if (strcmp(argv[1], "--operation=nonparallel") == 0) {
-    std::cout << "Hello from nonparallel operation." << std::endl;
+    nonparallel();
     return 0;
   }
 
