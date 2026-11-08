@@ -1,5 +1,5 @@
 CXX = icpx -fsycl -std=c++17
-WARNINGS = -Wall -Wextra -Werror
+WARNINGS = -Wall -Wextra -Werror -pedantic -Wshadow -Wnon-virtual-dtor -Wformat-security -Wimplicit-fallthrough -Wunreachable-code
 PATH_HOME = ${shell pwd}
 
 # Headers of all the sample programs.
