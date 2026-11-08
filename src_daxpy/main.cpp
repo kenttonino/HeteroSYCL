@@ -17,7 +17,7 @@ int main() {
   std::vector<double> x = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
   std::vector<double> y = { 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 };
 
-  before_daxpy(n, a, x, y);
+  before_daxpy(n, y);
   daxpy(n, a, x.data(), y.data());
   after_daxpy(n, a, y);
 
