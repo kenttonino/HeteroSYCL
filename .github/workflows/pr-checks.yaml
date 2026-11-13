@@ -57,6 +57,9 @@ jobs:
       - name: Build src_amdahls_law Program
         run: make build-amdahls-law
 
+      - name: Build src_calculus Program
+        run: make build-calculus
+
       - name: Build src_daxpy Program
         run: make build-daxpy
 
