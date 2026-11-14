@@ -44,6 +44,10 @@ echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 
 > - Install [GNUPlot](https://en.wikipedia.org/wiki/Gnuplot) for displaying graph of calculation.
 
+```sh
+sudo apt install gnuplot
+```
+
 > - To run the programs, follow the scripts below.
 
 ```sh
