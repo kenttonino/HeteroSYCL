@@ -9,6 +9,7 @@ HEADERS_CALCULUS = -I${PATH_HOME}/src_calculus
 
 # Source files of all the sample programs.
 SOURCE_FILES_AMDAHLS_LAW = ${wildcard ./src_amdahls_law/daxpy/*.cpp}
+SOURCE_FILES_CALCULUS = ${wildcard ./src_calculus/json/*.cpp} ${wildcard ./src_calculus/plotter/*.cpp}
 SOURCE_FILES_DAXYPY = ${wildcard ./src_daxpy/daxpy/*.cpp}
 
 .PHONY: build-amdahls-law build-daxpy build-hello run-amdahls-law run-daxpy run-hello
@@ -17,7 +18,7 @@ build-amdahls-law:
 	${CXX} ${WARNINGS} ${HEADERS_AMDAHLS_LAW} ./src_amdahls_law/main.cpp ${SOURCE_FILES_AMDAHLS_LAW} -o ./build/src_amdahls_law
 
 build-calculus:
-	${CXX} ${WARNINGS} ${HEADERS_CALCULUS} ./src_calculus/main.cpp -o ./build/src_calculus
+	${CXX} ${WARNINGS} ${HEADERS_CALCULUS} ./src_calculus/main.cpp ${SOURCE_FILES_CALCULUS} -o ./build/src_calculus
 
 build-daxpy:
 	${CXX} ${WARNINGS} ${HEADERS_DAXPY} ./src_daxpy/main.cpp ${SOURCE_FILES_DAXYPY} -o ./build/src_daxpy
