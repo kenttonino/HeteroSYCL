@@ -23,7 +23,7 @@ run-amdahls-law: build-amdahls-law
 # --------------------------------- #
 .PHONY: build-calculus run-calculus
 HEADERS_CALCULUS = -I${PATH_HOME}/src_calculus
-SOURCE_FILES_CALCULUS = ${wildcard ./src_calculus/json/*.cpp} ${wildcard ./src_calculus/plotter/*.cpp}
+SOURCE_FILES_CALCULUS = ${wildcard ./src_calculus/json/*.cpp} ${wildcard ./src_calculus/plotter/*.cpp} ${wildcard ./src_calculus/kernel/*.cpp}
 build-calculus:
 	${CXX} ${WARNINGS} ${HEADERS_CALCULUS} ./src_calculus/main.cpp ${SOURCE_FILES_CALCULUS} -o ./build/src_calculus
 run-calculus: build-calculus

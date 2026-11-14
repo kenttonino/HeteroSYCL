@@ -1,8 +1,9 @@
 #include <cstdio>
+#include <vector>
 
 namespace JSON {
   // Save the calculation result in data/result.json file.
-  void write(double *x, double *y, int X_COUNT) {
+  void write(std::vector<double> &x, std::vector<double> &y, int X_COUNT) {
     FILE* file_write = fopen("src_calculus/data/result.json", "w");
     // System call to open and write to a file.
     // Throw error if cannot find the file.
