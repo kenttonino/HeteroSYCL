@@ -41,11 +41,14 @@ icpx --version
 echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 ```
 
+> - Install [GNUPlot](https://en.wikipedia.org/wiki/Gnuplot) for displaying graph of calculation.
+
 > - To run the programs, follow the scripts below.
 
 ```sh
 # Choose either of the script below to run your preferred program.
 make run-amdahls-law operation=nonparallel
+make run-calculus example=1
 make run-daxpy
 make run-hello
 ```
