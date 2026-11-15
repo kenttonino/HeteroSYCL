@@ -11,13 +11,12 @@
  *
  * */
 void daxpy(
+  sycl::queue q,
   int n,
   float a,
   const float* x,
   float* y
 ) {
-  sycl::queue q(sycl::gpu_selector_v);
-
   // Allocate device memory for x and y vectors.
   float* d_x = sycl::malloc_device<float>(n, q);
   float* d_y = sycl::malloc_device<float>(n, q);
@@ -28,9 +27,11 @@ void daxpy(
   q.wait();
 
   // Kernel: each work-item computes one element in parallel.
-  q.parallel_for(sycl::range<1>(n), [=](sycl::id<1> i) {
-    d_y[i] = a * d_x[i] + d_y[i];
-  }).wait();
+  {
+    q.parallel_for(sycl::range<1>(n), [=](sycl::id<1> i) {
+      d_y[i] = a * d_x[i] + d_y[i];
+    }).wait();
+  }
 
   // Copy result device -> host back into y.
   q.memcpy(static_cast<void*>(y), d_y, n * sizeof(double)).wait();

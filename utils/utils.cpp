@@ -17,4 +17,8 @@ namespace Utils {
   std::string text_blue(std::string text) {
     return BLUE + text + RESET;
   }
+
+  std::string text_green(std::string text) {
+    return GREEN + text + RESET;
+  }
 }

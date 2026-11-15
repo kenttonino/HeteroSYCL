@@ -1,6 +1,7 @@
 #ifndef DAXPY_HPP
 #define DAXPY_HPP
 #include <vector>
+#include <sycl/sycl.hpp>
 
 void before_daxpy(
   const int n,
@@ -14,6 +15,7 @@ void after_daxpy(
 );
 
 void daxpy(
+  sycl::queue q,
   int n,
   float a,
   const float* x,

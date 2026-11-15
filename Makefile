@@ -39,9 +39,9 @@ run-calculus: build-calculus
 # ------------------------------ #
 .PHONY: build-daxpy run-daxpy
 HEADERS_DAXPY = -I${PATH_HOME}/src_daxpy/daxpy
-SOURCE_FILES_DAXYPY = ${wildcard ./src_daxpy/daxpy/*.cpp}
+SOURCE_FILES_DAXYPY = ${wildcard ./src_daxpy/daxpy/*.cpp} ${wildcard ./src_daxpy/display/*.cpp}
 build-daxpy:
-	${CXX} ${WARNINGS} ${HEADERS_DAXPY} ./src_daxpy/main.cpp ${SOURCE_FILES_DAXYPY} -o ./build/src_daxpy
+	${CXX} ${WARNINGS} ${HEADERS_GLOBAL} ${HEADERS_DAXPY} ./src_daxpy/main.cpp ${SOURCE_FILES_GLOBAL} ${SOURCE_FILES_DAXYPY} -o ./build/src_daxpy
 run-daxpy: build-daxpy
 	clear
 	ONEAPI_DEVICE_SELECTOR=level_zero:gpu ./build/src_daxpy
