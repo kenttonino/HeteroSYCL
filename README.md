@@ -42,6 +42,13 @@ icpx --version
 echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 ```
 
+> - Then install separately the GPU Compiler and Compute Runtime via releases.
+
+```sh
+https://github.com/intel/intel-graphics-compiler
+https://github.com/intel/compute-runtime
+```
+
 > - Install the tools below.
 
 ```sh
