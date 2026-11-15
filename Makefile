@@ -2,7 +2,7 @@ CXX = icpx -fsycl -std=c++17
 WARNINGS = -Wall -Wextra -Werror -pedantic -Wshadow -Wnon-virtual-dtor -Wformat-security -Wimplicit-fallthrough -Wunreachable-code
 PATH_HOME = ${shell pwd}
 HEADERS_GLOBAL = -I${PATH_HOME}/utils
-SOURCE_FILES_GLOBAL = ${wildcard ./src/utils/*.cpp}
+SOURCE_FILES_GLOBAL = ${wildcard ./utils/*.cpp}
 
 # ------------------------------------ #
 # 																		 #
@@ -51,7 +51,10 @@ run-daxpy: build-daxpy
 # 															 #
 # ------------------------------ #
 .PHONY: build-hello run-hello
+HEADERS_HELLO = -I${PATH_HOME}/src_hello
+SOURCE_FILES_HELLO = ${wildcard ./src_hello/display/*.cpp}
 build-hello:
-	${CXX} ${WARNINGS} ${HEADERS_GLOBAL} ./src_hello/main.cpp ${SOURCE_FILES_GLOBAL} -o ./build/src_hello
+	${CXX} ${WARNINGS} ${HEADERS_GLOBAL} ${HEADERS_HELLO} ./src_hello/main.cpp ${SOURCE_FILES_GLOBAL} ${SOURCE_FILES_HELLO} -o ./build/src_hello
 run-hello: build-hello
+	clear
 	./build/src_hello

@@ -1,8 +1,10 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
+#include <string>
 
 namespace Utils {
-  void newline(int lines);
+  void new_line(int lines);
+  std::string text_blue(std::string text);
 }
 
 #endif
