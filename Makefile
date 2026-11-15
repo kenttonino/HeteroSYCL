@@ -43,7 +43,8 @@ SOURCE_FILES_DAXYPY = ${wildcard ./src_daxpy/daxpy/*.cpp}
 build-daxpy:
 	${CXX} ${WARNINGS} ${HEADERS_DAXPY} ./src_daxpy/main.cpp ${SOURCE_FILES_DAXYPY} -o ./build/src_daxpy
 run-daxpy: build-daxpy
-	./build/src_daxpy
+	clear
+	ONEAPI_DEVICE_SELECTOR=level_zero:gpu ./build/src_daxpy
 
 # ------------------------------ #
 # 															 #

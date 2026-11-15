@@ -3,8 +3,8 @@
 
 void after_daxpy(
   const int n,
-  const double a,
-  const std::vector<double> y
+  const float a,
+  const std::vector<float> y
 ) {
  std::cout << "\nAfter daxpy (a=" << a << ", y = a*x + y):\n";
 

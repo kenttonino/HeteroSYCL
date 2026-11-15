@@ -12,15 +12,15 @@
  * */
 void daxpy(
   int n,
-  double a,
-  const double* x,
-  double* y
+  float a,
+  const float* x,
+  float* y
 ) {
-  sycl::queue q;
+  sycl::queue q(sycl::gpu_selector_v);
 
   // Allocate device memory for x and y vectors.
-  double* d_x = sycl::malloc_device<double>(n, q);
-  double* d_y = sycl::malloc_device<double>(n, q);
+  float* d_x = sycl::malloc_device<float>(n, q);
+  float* d_y = sycl::malloc_device<float>(n, q);
 
   // Copy host -> device.
   q.memcpy(d_x, static_cast<const void*>(x), n * sizeof(double));

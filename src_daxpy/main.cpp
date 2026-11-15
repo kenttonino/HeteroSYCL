@@ -12,10 +12,10 @@
 
 int main() {
   const int n = 8;
-  const double a = 2.0;
+  const float a = 2.0;
 
-  std::vector<double> x = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
-  std::vector<double> y = { 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 };
+  std::vector<float> x = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+  std::vector<float> y = { 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 };
 
   before_daxpy(n, y);
   daxpy(n, a, x.data(), y.data());
