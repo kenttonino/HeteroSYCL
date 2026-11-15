@@ -42,10 +42,21 @@ icpx --version
 echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 ```
 
-> - Install [GNUPlot](https://en.wikipedia.org/wiki/Gnuplot) for displaying graph of calculation.
+> - Then install separately the GPU Compiler and Compute Runtime via releases.
 
 ```sh
+https://github.com/intel/intel-graphics-compiler
+https://github.com/intel/compute-runtime
+```
+
+> - Install the tools below.
+
+```sh
+# For graphing purposes.
 sudo apt install gnuplot
+
+# For investigating the GPU processes and behaviors.
+sudo apt install intel-gpu-top
 ```
 
 > - To run the programs, follow the scripts below.

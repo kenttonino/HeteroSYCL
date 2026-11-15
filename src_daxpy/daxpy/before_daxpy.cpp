@@ -3,7 +3,7 @@
 
 void before_daxpy(
   const int n,
-  const std::vector<double> y
+  const std::vector<float> y
 ) {
   std::cout << "Before daxpy: " << std::endl;
   for (int i = 0; i < n; i++) {

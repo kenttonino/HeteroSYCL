@@ -1,6 +1,8 @@
 CXX = icpx -fsycl -std=c++17
 WARNINGS = -Wall -Wextra -Werror -pedantic -Wshadow -Wnon-virtual-dtor -Wformat-security -Wimplicit-fallthrough -Wunreachable-code
 PATH_HOME = ${shell pwd}
+HEADERS_GLOBAL = -I${PATH_HOME}/utils
+SOURCE_FILES_GLOBAL = ${wildcard ./utils/*.cpp}
 
 # ------------------------------------ #
 # 																		 #
@@ -37,11 +39,12 @@ run-calculus: build-calculus
 # ------------------------------ #
 .PHONY: build-daxpy run-daxpy
 HEADERS_DAXPY = -I${PATH_HOME}/src_daxpy/daxpy
-SOURCE_FILES_DAXYPY = ${wildcard ./src_daxpy/daxpy/*.cpp}
+SOURCE_FILES_DAXYPY = ${wildcard ./src_daxpy/daxpy/*.cpp} ${wildcard ./src_daxpy/display/*.cpp}
 build-daxpy:
-	${CXX} ${WARNINGS} ${HEADERS_DAXPY} ./src_daxpy/main.cpp ${SOURCE_FILES_DAXYPY} -o ./build/src_daxpy
+	${CXX} ${WARNINGS} ${HEADERS_GLOBAL} ${HEADERS_DAXPY} ./src_daxpy/main.cpp ${SOURCE_FILES_GLOBAL} ${SOURCE_FILES_DAXYPY} -o ./build/src_daxpy
 run-daxpy: build-daxpy
-	./build/src_daxpy
+	clear
+	ONEAPI_DEVICE_SELECTOR=level_zero:gpu ./build/src_daxpy
 
 # ------------------------------ #
 # 															 #
@@ -49,7 +52,10 @@ run-daxpy: build-daxpy
 # 															 #
 # ------------------------------ #
 .PHONY: build-hello run-hello
+HEADERS_HELLO = -I${PATH_HOME}/src_hello
+SOURCE_FILES_HELLO = ${wildcard ./src_hello/display/*.cpp}
 build-hello:
-	${CXX} ${WARNINGS} ./src_hello/main.cpp -o ./build/src_hello
+	${CXX} ${WARNINGS} ${HEADERS_GLOBAL} ${HEADERS_HELLO} ./src_hello/main.cpp ${SOURCE_FILES_GLOBAL} ${SOURCE_FILES_HELLO} -o ./build/src_hello
 run-hello: build-hello
-	./build/src_hello
+	clear
+	ONEAPI_DEVICE_SELECTOR=level_zero:gpu ./build/src_hello

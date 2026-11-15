@@ -1,23 +1,25 @@
 #ifndef DAXPY_HPP
 #define DAXPY_HPP
 #include <vector>
+#include <sycl/sycl.hpp>
 
 void before_daxpy(
   const int n,
-  const std::vector<double> y
+  const std::vector<float> y
 );
 
 void after_daxpy(
   const int n,
-  const double a,
-  const std::vector<double> y
+  const float a,
+  const std::vector<float> y
 );
 
 void daxpy(
+  sycl::queue q,
   int n,
-  double a,
-  const double* x,
-  double* y
+  float a,
+  const float* x,
+  float* y
 );
 
 #endif
