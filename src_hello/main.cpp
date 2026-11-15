@@ -19,7 +19,7 @@ int main(void) {
   // Show the current available device.
   std::string device = q.get_device().get_info<sycl::info::device::name>();
   std::cout << "Running on: " << Utils::text_blue(device);
-  Utils::new_line(1);
+  Utils::new_line(2);
 
   char* result = sycl::malloc_shared<char>(sz, q);
   std::memcpy(result, secret.data(), sz);
