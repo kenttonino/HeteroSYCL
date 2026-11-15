@@ -57,4 +57,4 @@ build-hello:
 	${CXX} ${WARNINGS} ${HEADERS_GLOBAL} ${HEADERS_HELLO} ./src_hello/main.cpp ${SOURCE_FILES_GLOBAL} ${SOURCE_FILES_HELLO} -o ./build/src_hello
 run-hello: build-hello
 	clear
-	./build/src_hello
+	ONEAPI_DEVICE_SELECTOR=level_zero:gpu ./build/src_hello

@@ -2,6 +2,7 @@
 #include <sycl/sycl.hpp>
 #include "../utils/utils.hpp"
 #include "./display/display.hpp"
+#include "sycl/device_selector.hpp"
 
 const std::string secret { "Ifmmp-!xpsme\"\012" };
 const auto sz = secret.size();
@@ -13,7 +14,7 @@ int main(void) {
   Utils::new_line(2);
 
   // Setup a qeueu in offloading parallel computation.
-  sycl::queue q;
+  sycl::queue q(sycl::gpu_selector_v);
 
   // Show the current available device.
   std::string device = q.get_device().get_info<sycl::info::device::name>();
